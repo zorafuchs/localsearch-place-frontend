@@ -8,6 +8,7 @@ export const PlacesComponent = (attributes: { place: PlaceModel }) => {
       <h1>{attributes.place.name}</h1>
       <p>{attributes.place.address}</p>
       <Table responsive>
+          { attributes.place.openingHours ? (
         <tbody>
           {attributes.place.openingHours.map((openingHour, key) => (
             <tr key={key}>
@@ -20,6 +21,9 @@ export const PlacesComponent = (attributes: { place: PlaceModel }) => {
             </tr>
           ))}
         </tbody>
+        ) : (
+            <p> no data available</p>
+        )}
       </Table>
     </>
   );
